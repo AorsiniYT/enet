@@ -57,23 +57,15 @@
 #define HAS_GETNAMEINFO 1
 #endif
 #elif defined(__vita__)
-#ifdef HAS_POLL
-#undef HAS_POLL
-#endif
-#ifdef HAS_FCNTL
-#undef HAS_FCNTL
-#endif
-#ifdef HAS_IOCTL
-#undef HAS_IOCTL
+// PS Vita: No soporte para ancillary data ni control de mensajes avanzados
+#ifndef NO_MSGAPI
+#define NO_MSGAPI 1
 #endif
 #ifndef HAS_INET_PTON
 #define HAS_INET_PTON 1
 #endif
 #ifndef HAS_INET_NTOP
 #define HAS_INET_NTOP 1
-#endif
-#ifdef HAS_MSGHDR_FLAGS
-#undef HAS_MSGHDR_FLAGS
 #endif
 #ifndef HAS_SOCKLEN_T
 #define HAS_SOCKLEN_T 1
